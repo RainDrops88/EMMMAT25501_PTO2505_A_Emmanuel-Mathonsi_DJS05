@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import { PodcastContext } from "../context/PodcastContext";
+import icon from "../assets/podcast icon.webp";
 
 export default function Header() {
-  const { search, setSearch } = useContext(PodcastContext);
+  const { search, setSearch, searchBarVisible } = useContext(PodcastContext);
 
   return (
     <header className="app-header">
-      <h1>🎙️ Podcast App</h1>
-      <div className="search">
-      <input className="search-bar" type="text" placeholder="Search podcasts..." value={search} onChange={(e) => setSearch(e.target.value)} />
-      
-      </div>
+      <h1><img src={icon} alt="Podcast Icon" className="icon" /> Podcast App</h1>
+      {searchBarVisible && (
+        <div className="search">
+          <input className="search-bar" type="text" placeholder="Search podcasts..." value={search} onChange={(e) => setSearch(e.target.value)} />
+        </div>
+      )}
     </header>
 
   );
