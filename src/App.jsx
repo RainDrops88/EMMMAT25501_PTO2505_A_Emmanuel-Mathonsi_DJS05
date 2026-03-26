@@ -7,6 +7,7 @@ import {PodcastProvider} from "./context/PodcastContext"
 import Pagination  from "./components/Pagination"
 import { Routes, Route } from 'react-router-dom';
 import DetailedCard from "./components/DetailedCard";
+import styles from "./App.module.css"
 
 /**
  * App - The root component of the Podcast Explorer application. It handles:
@@ -35,15 +36,15 @@ export default function App() {
       
       <main>
         {loading && (
-          <div className="message-container">
-            <div className="spinner"></div>
+          <div className={styles.messageContainer}>
+            <div className={styles.spinner}></div>
             <p>Loading podcasts...</p>
           </div>
         )}
 
         {error && (
-          <div className="message-container">
-            <div className="error">
+          <div className={styles.messageContainer}>
+            <div className={styles.error}>
               Error occurred while trying fetching podcasts: {error}
             </div>
           </div>
