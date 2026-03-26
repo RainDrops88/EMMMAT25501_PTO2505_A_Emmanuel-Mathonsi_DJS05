@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function SeasonCard({ show }) {
     const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
     const seasons = show?.seasons || [];
     const selectedSeason = seasons[selectedSeasonIndex] || seasons[0];
-
-    useEffect(() => {
-        setSelectedSeasonIndex(0);
-    }, [show?.id]);
+    const episodes = selectedSeason?.episodes || [];
 
     return (
         <section className="season-card">
@@ -42,11 +39,11 @@ export default function SeasonCard({ show }) {
                                 <h2 className="season-title">
                                     Season {selectedSeason.season}{selectedSeason.title ? `: ${selectedSeason.title}` : ""}
                                 </h2>
-                                <p><span>{selectedSeason.episodes.length} Episode{selectedSeason.episodes.length !== 1 ? "s" : ""}</span></p>
+                                <p><span>{episodes.length} Episode{episodes.length !== 1 ? "s" : ""}</span></p>
                             </div>
                         </div>
                             <ul className="episodes-list">
-                                {selectedSeason.episodes.map((episode) => (
+                                {episodes.map((episode) => (
                                     <li key={episode.episode} className="episode-item">
                                         <strong>Episode {episode.episode}:</strong> {episode.title}
                                         <p className="episode-description">
