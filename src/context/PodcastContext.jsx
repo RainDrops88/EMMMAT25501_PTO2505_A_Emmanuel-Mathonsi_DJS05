@@ -45,11 +45,12 @@ export const PodcastContext = createContext();
  *
  */
 export function PodcastProvider({ children, initialPodcast}){
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("default");
-  const [filter, setFilter] = useState("all-genres");
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
+    const [search, setSearch] = useState("");
+    const [searchBarVisible, setSearchBarVisible] = useState(true);
+    const [sort, setSort] = useState("default");
+    const [filter, setFilter] = useState("all-genres");
+    const [page, setPage] = useState(1);
+    const [pageSize, setPageSize] = useState(10);
     const [genres, setGenres] = useState([]);
     const [showsById, setShowsById] = useState({});
     const [showsLoading, setShowsLoading] = useState(true);
@@ -209,6 +210,8 @@ export function PodcastProvider({ children, initialPodcast}){
     const value = {
         search,
         setSearch,
+        searchBarVisible,
+        setSearchBarVisible,
         sort,
         setSort,
         filter,
