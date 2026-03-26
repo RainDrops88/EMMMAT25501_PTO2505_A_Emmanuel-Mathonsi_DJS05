@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 import { PodcastContext } from "../context/PodcastContext";
@@ -9,12 +9,28 @@ import "../index.css";
 
 
 export default function DetailedCard() {
-  const [searchBarVisible, setSearchBarVisible] = useState(true);
-  const { genres = [], allPodcasts = [], showsById = {}, showsError } = useContext(PodcastContext);
+  const { genres = [], allPodcasts = [], showsById = {}, showsLoading, showsError, setSearchBarVisible } = useContext(PodcastContext);
   const { id } = useParams();
   const parentPodcast = allPodcasts.find((podcast) => String(podcast.id) === String(id));
-  const show = showsById[id];
+  const show = showsById[String(id)];
   const genreIds = parentPodcast?.genres || show?.genres || [];
+
+  useEffect(() => {
+    setSearchBarVisible(false);
+
+    return () => {
+      setSearchBarVisible(true);
+    };
+  }, [setSearchBarVisible]);
+
+  if (showsLoading) {
+    return (
+      <div className="message-container">
+        <div className="spinner"></div>
+        <p>Loading show details...</p>
+      </div>
+    );
+  }
 
   if (showsError) {
     return (
@@ -65,13 +81,13 @@ export default function DetailedCard() {
                         </div>
                         <div className="d-episodes-div">
                             <p className="d-total-episodes">TOTAL EPISODES</p>
-                            <div className="total-episodes">{show.seasons.reduce((total, season) => total + season.episodes.length, 0)} Episodes</div>
+                            <div className="total-episodes">{show.seasons.reduce((total, season) => total + (season.episodes?.length || 0), 0)} Episodes</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-      <SeasonCard show={show} />
+      <SeasonCard key={show.id} show={show} />
     </div>
   );
 }
