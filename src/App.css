@@ -1,0 +1,134 @@
+
+.arrow-container {
+    width:0rem;
+    height:0rem;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.1rem;
+    border-radius: 50%;
+    background-color: #88efdc;
+    cursor: pointer;
+    
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 20px solid #9f9494;
+}
+
+.arrow:hover {
+    border-right-color: #b63838;
+    transform: scale(1.2);
+}
+
+.detailed-card-page {
+    padding: 1rem;
+}
+
+.card-profile {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 40% 60%;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.detailed-image {
+    width:100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.d-title {
+    margin: 0;
+}
+.d-description {
+    padding-right: 2rem;
+    margin: 0.5rem 0;
+    color: var(--grey-text);
+}
+
+.season-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+ #seasons-list {
+    width: auto;
+    height: 30px;
+    margin: auto 2rem auto 0;
+
+}
+
+.genre-date, .season-info {
+    display:grid;
+    grid-template-columns: 60% 40%;
+    margin-top: 1rem;
+}
+
+.episodes-div {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.season-header {
+    display: grid;
+    grid-template-columns: 5% 90%;
+    gap: 1rem;
+    align-items: center;
+}
+
+.season-description {
+    margin:  0;
+    color: var(--grey-text);
+}
+
+.season-title {
+    margin: 0;
+}
+
+.season-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.episodes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.episode-item {
+    background-color: rgba(233, 235, 237, 0.447);
+    padding: 1rem;
+    margin: 0 0 1rem 0;
+    border-radius: 8px;
+}
+
+.episode-description {
+    margin: 0.5rem 0 0 0;
+    color: var(--grey-text);
+    font-size: 0.9rem;
+}
+
+.episode-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+@media (max-width: 768px) {
+    .card-profile {
+        grid-template-columns: 100%;
+    }
+    
+}
