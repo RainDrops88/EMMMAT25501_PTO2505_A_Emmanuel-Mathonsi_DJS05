@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background: rgb(99, 227, 184);
+  background: rgba(160, 179, 173, 0.831);
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 .card {
-  background: rgba(101, 126, 119, 0.409);
+  background: #c6cbcf8e;
   height: 90%;
   padding: 1rem;
   border-radius: 8px;
