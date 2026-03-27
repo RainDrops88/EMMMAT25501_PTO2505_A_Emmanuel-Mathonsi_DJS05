@@ -45,13 +45,17 @@ export default function SeasonCard({ show }) {
                             <ul className="episodes-list">
                                 {episodes.map((episode) => (
                                     <li key={episode.episode} className="episode-item">
-                                        <strong>Episode {episode.episode}:</strong> {episode.title}
-                                        <p className="episode-description">
+                                        <img src={selectedSeason.image} alt={`Episode ${episode.episode} cover`} className="episode-image" />
+                                        <div className="episode-d">
+                                            <strong>Episode {episode.episode}:</strong> {episode.title}
+                                            <p className="episode-description">
                                             {episode.description && episode.description !== "null" && episode.description.trim() !== ""
                                                 ? episode.description
                                                 : "Description not available"}
-                                        </p>
-                                        {episode.file && <audio className="episode-audio" controls> <source src={episode.file} type="audio/mpeg" /></audio>}
+                                            </p>
+                                            {episode.file && <audio className="episode-audio" controls> <source src={episode.file} type="audio/mpeg" /></audio>}
+                                        </div>
+                                        
                                     </li>
                                 ))}
                             </ul>
