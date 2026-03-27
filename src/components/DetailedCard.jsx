@@ -77,7 +77,7 @@ export default function DetailedCard() {
                     <div className="season-info">
                         <div className="d-season-div">
                             <p className="d-total-season">TOTAL SEASONS</p>
-                        <div className="total-season">{show.seasons.length} Seasons</div>
+                        <div className="total-seasons">{show.seasons.length} Seasons</div>
                         </div>
                         <div className="d-episodes-div">
                             <p className="d-total-episodes">TOTAL EPISODES</p>
