@@ -32,7 +32,7 @@
 
 .card-profile {
     display: grid;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-columns: 40% 60%;
     padding: 1.5rem;
     border: 1px solid #ccc;
@@ -148,7 +148,25 @@
     -webkit-box-orient: vertical;
 }
 
+@media (max-width:1024px) {
+    .detailed-card-page {
+        width: 90%;
+        margin: auto;
+
+    }
+
+    .card-profile {
+        grid-template-columns: 30% 60%;
+    }
+}
+
 @media (max-width: 768px) {
+        .detailed-card-page {
+            width: 95%;
+            margin: auto;
+            padding: 0;
+        }
+    
     .card-profile {
         grid-template-columns: 100%;
     }
@@ -161,5 +179,11 @@
         line-clamp: 5;
         -webkit-box-orient: vertical;
     }
+
+    audio {
+        width: 100%;
+
+    }
     
 }
+
