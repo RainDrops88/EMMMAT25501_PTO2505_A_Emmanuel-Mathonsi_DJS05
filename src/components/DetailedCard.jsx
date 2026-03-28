@@ -7,6 +7,11 @@ import { Link } from "react-router-dom";
 import SeasonCard from "./SeasonCard";
 import "../index.css";
 
+/**
+ * Displays detailed metadata and seasons for a selected podcast show.
+ *
+ * @returns {JSX.Element}
+ */
 
 export default function DetailedCard() {
   const { genres = [], allPodcasts = [], showsById = {}, showsLoading, showsError, setSearchBarVisible } = useContext(PodcastContext);

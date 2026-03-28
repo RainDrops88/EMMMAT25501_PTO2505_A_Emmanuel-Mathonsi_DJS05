@@ -5,6 +5,11 @@ import './index.css'
 import './DetailedCard.css'
 import App from './App.jsx'
 
+/**
+ * Mounts the React application to the DOM root node.
+ *
+ * @returns {void}
+ */
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

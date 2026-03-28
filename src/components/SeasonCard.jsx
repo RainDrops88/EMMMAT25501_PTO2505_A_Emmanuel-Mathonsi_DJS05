@@ -1,5 +1,36 @@
 import { useState } from "react";
 
+
+
+
+
+/**
+ * @typedef {Object} Episode
+ * @property {number} episode - Episode number within a season.
+ * @property {string} title - Episode title.
+ * @property {string|null|undefined} [description] - Episode summary text.
+ * @property {string|null|undefined} [file] - Audio file URL.
+ */
+
+/**
+ * @typedef {Object} Season
+ * @property {number} season - Season number.
+ * @property {string} image - Cover image URL for the season.
+ * @property {string|undefined} [title] - Optional season title.
+ * @property {Episode[]} episodes - Episodes in this season.
+ */
+
+/**
+ * @typedef {Object} Show
+ * @property {Season[]} [seasons] - Available seasons for the show.
+ */
+
+/**
+ * Renders season details and episodes for a selected show season.
+ *
+ * @param {{ show: Show }} props - Component props.
+ * @returns {JSX.Element}
+ */
 export default function SeasonCard({ show }) {
     const [selectedSeasonIndex, setSelectedSeasonIndex] = useState(0);
     const seasons = show?.seasons || [];

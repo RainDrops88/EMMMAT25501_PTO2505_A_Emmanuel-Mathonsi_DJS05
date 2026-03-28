@@ -2,6 +2,11 @@ import { useContext } from "react";
 import { PodcastContext } from "../context/PodcastContext";
 import icon from "../assets/podcast icon.webp";
 
+/**
+ * Renders the app header and global podcast search input.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Header() {
   const { search, setSearch, searchBarVisible } = useContext(PodcastContext);
 

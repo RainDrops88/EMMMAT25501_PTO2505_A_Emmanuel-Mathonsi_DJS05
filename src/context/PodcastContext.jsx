@@ -3,14 +3,19 @@ import { fetchGenreById } from "../api/fetchGenres.jsx";
 import { fetchShowById } from "../api/fetchShow.jsx";
 
 /**
- * @typedef Podcast
- * @property (number) id - Unique identifier
- * @property (string) title - Podcast title
- * @property (string) updated - last updated IOS date string
- * @property (number[]) genres - Array of genre IDs
- * @property (string) image - URL to podcast artwork
- * @property (number) seasons - Number of seasons
- * 
+ * @typedef {Object} Podcast
+ * @property {number} id - Unique identifier.
+ * @property {string} title - Podcast title.
+ * @property {string} updated - Last updated ISO date string.
+ * @property {number[]} genres - Array of genre IDs.
+ * @property {string} image - URL to podcast artwork.
+ * @property {number} seasons - Number of seasons.
+ */
+
+/**
+ * @typedef {Object} PodcastProviderProps
+ * @property {React.ReactNode} children - Nested elements rendered inside the provider.
+ * @property {Podcast[]} initialPodcast - Initial podcast dataset from the API.
  */
 
 /**
@@ -28,21 +33,16 @@ export const SORT_OPTIONS = [
 
 /**
  * React context for sharing podcast states across components.
- * Must be used within a <PodcastProvider>
+ * Must be used within a `PodcastProvider`.
  */
 
 export const PodcastContext = createContext();
 
 /**
- * 
- * PodcastProvider component wraps children in a context with state for
- * searching, sorting, filtering and paginating podcast data 
- */
-
-/**
- * Dynamically calculate how many cards can fit on screen.
- * Set a fixed 10 cards for tablet and smaller screen.
+ * Provides podcast state and derived values to descendant components.
  *
+ * @param {PodcastProviderProps} props - Provider props.
+ * @returns {JSX.Element}
  */
 export function PodcastProvider({ children, initialPodcast}){
     const [search, setSearch] = useState("");
@@ -155,7 +155,12 @@ export function PodcastProvider({ children, initialPodcast}){
         return () => window.removeEventListener("resize", calculatePageSize);
   }, []);
 
-  const applyFilters = () => {
+    /**
+     * Applies search, genre filter, and sort order to the full podcast list.
+     *
+     * @returns {Podcast[]} Filtered and sorted podcast list.
+     */
+    const applyFilters = () => {
     let data = [...initialPodcast];
 
     // search filter

@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import { PodcastContext } from "../context/PodcastContext";
 
+/**
+ * Renders podcast filtering and sorting controls.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Filter() {
     const { filter, setFilter, sort, setSort, genres } = useContext(PodcastContext);
     return (
